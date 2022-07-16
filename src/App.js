@@ -25,8 +25,8 @@ toast.success(`Password generated and copied to active clipboard!`);
    <Container maxWidth="sm">
    
 <div style={{"marginTop": "50%", "color": "white"}}>
-<TextField value={password} style={{"marginBottom": "1%",  "width": "500px"}}id="standard-basic" label="" variant="standard" /><br/>
-<TextField  value={length} onChange={(e) => {setLength(e.target.value)}} style={{"marginBottom": "1%",  "width": "500px"}}id="standard-basic" label="Length" variant="standard" type="number"/><br/>
+<TextField value={password} style={{"marginBottom": "1%",  "width": "70%"}}id="standard-basic" label="" variant="standard" /><br/>
+<TextField  value={length} onChange={(e) => {setLength(e.target.value)}} style={{"marginBottom": "1%",  "width": "70%"}}id="standard-basic" label="Length" variant="standard" type="number"/><br/>
 <Button variant="contained" className="genbtn" onClick={genPass}>Generate Password</Button>
 </div>
 
