@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
+import TextField from '@mui/material/TextField';
+import aerect from 'aerect.js';
+
 
 function App() {
+const [length, setLength] = React.useState(15);
+const [password, setPassword] = React.useState('');
+
+const genPass = () => {
+const password = aerect.generateID(length);
+setPassword(password);
+navigator.clipboard.writeText(password);
+toast.success(`Password generated and copied to active clipboard!`);
+}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+    <ToastContainer />
+   <Container maxWidth="sm">
+   
+<div style={{"marginTop": "50%", "color": "white"}}>
+<TextField value={password} style={{"marginBottom": "1%",  "width": "500px"}}id="standard-basic" label="" variant="standard" /><br/>
+<TextField  value={length} onChange={(e) => {setLength(e.target.value)}} style={{"marginBottom": "1%",  "width": "500px"}}id="standard-basic" label="Length" variant="standard" type="number"/><br/>
+<Button variant="contained" className="genbtn" onClick={genPass}>Generate Password</Button>
+</div>
+
+</Container>
+   </>
   );
 }
 
