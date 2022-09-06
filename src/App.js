@@ -14,8 +14,8 @@ const [length, setLength] = React.useState(15);
 const [password, setPassword] = React.useState('');
 
 const genPass = () => {
-const password = aerect.generateID(length);
-setPassword(password);
+const securepassword = aerect.generateID(length);
+setPassword(securepassword);
 navigator.clipboard.writeText(password);
 toast.success(`Password generated and copied to active clipboard!`);
 }
